@@ -4,9 +4,6 @@
   become: true
   tasks:
     - name: Disable SELinux
-      shell: 'ps aux | grep redis'
-      register: ps
-
-    - debug: var=ps.stdout_lines
-        
+      selinux:
+        state: disabled
  
