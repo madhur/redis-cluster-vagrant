@@ -32,6 +32,12 @@ boxes = [
   :mem => "4096",
   :cpu => "2"
 },
+{
+  :name => "redisexporter",
+  :eth1 => "192.168.56.15",
+  :mem => "2048",
+  :cpu => "2"
+}
 ]
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure

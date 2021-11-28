@@ -1,15 +1,165 @@
 ---
-- name: Setup Redis
-  hosts: 192.168.56.10
-  become: true
-  roles:
-    - role: ansible-role-redis
+    - name: setup 7000
+      become: true
+      hosts: 192.168.56.10
+      roles: 
+        - ansible-role-redis
       vars:
-        redis_port: 7000
-        redis_slave: true
-        slave_of: false
-        #slave_of: 192.168.56.11
-        #slave_of_port: 700
+        redis_port: 7000        
+
+    - name: setup 7001
+      become: true
+      hosts: 192.168.56.10
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 7001        
+
+    - name: setup 7002
+      become: true
+      hosts: 192.168.56.11
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 7002
+
+    - name: setup 7003
+      become: true
+      hosts: 192.168.56.11
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 7003
+
+    - name: setup 7004
+      become: true
+      hosts: 192.168.56.12
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 7004
+
+    - name: setup 7005
+      become: true
+      hosts: 192.168.56.12
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 7005
+
+    - name: setup 7006
+      become: true
+      hosts: 192.168.56.13
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 7006
+
+    - name: setup 7007
+      become: true
+      hosts: 192.168.56.13
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 7007
+
+    - name: setup 7008
+      become: true
+      hosts: 192.168.56.14
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 7008
+
+
+    - name: setup 7009
+      become: true
+      hosts: 192.168.56.14
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 7009
+
+    - name: setup 6000
+      become: true
+      hosts: 192.168.56.11
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 6000
+
+    - name: setup 6001
+      become: true
+      hosts: 192.168.56.11
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 6001
+
+    - name: setup 6002
+      become: true
+      hosts: 192.168.56.14
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 6002
+
+    - name: setup 6003
+      become: true
+      hosts: 192.168.56.14
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 6003
+
+
+    - name: setup 6004
+      become: true
+      hosts: 192.168.56.13
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 6004
+
+    - name: setup 6005
+      become: true
+      hosts: 192.168.56.13
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 6005
+
+    - name: setup 6006
+      become: true
+      hosts: 192.168.56.12
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 6006
+
+    - name: setup 6007
+      become: true
+      hosts: 192.168.56.12
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 6007
+
+    - name: setup 6008
+      become: true
+      hosts: 192.168.56.10
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 6008
+
+    - name: setup 6009
+      become: true
+      hosts: 192.168.56.10
+      roles: 
+        - ansible-role-redis
+      vars:
+        redis_port: 6009
 
 
 # 10, 7000, 7001  , 6008. 6009
@@ -18,7 +168,6 @@
 # 13, 7006, 7007, 6004, 6005
 # 14, 7008, 7009, 6002, 6003
 
-#
-# redis-cli --cluster create 192.168.56.10:7000 192.168.56.10:7001 192.168.56.11:7002 192.168.56.11:7003 192.168.56.12:7004 192.168.56.12:7005 192.168.56.13:7006 192.168.56.13:7007 192.168.56.14:7008 192.168.56.14:7009 192.168.56.10:6
+
 
 #redis-cli --cluster create 192.168.56.10:7000 192.168.56.10:7001 192.168.56.11:7002 192.168.56.11:7003 192.168.56.12:7004 192.168.56.12:7005 192.168.56.13:7006 192.168.56.13:7007 192.168.56.14:7008 192.168.56.14:7009 192.168.56.10:6008 192.168.56.10:6009 192.168.56.11:6000 192.168.56.11:6001 192.168.56.12:6006 192.168.56.12:6007 192.168.56.13:6004 192.168.56.13:6005 192.168.56.14:6002 192.168.56.14:6003  --cluster-replicas 1

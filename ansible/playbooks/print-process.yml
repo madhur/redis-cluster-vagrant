@@ -1,0 +1,12 @@
+---
+- name: Print Process
+  hosts: redis 
+  tasks:
+    - name: Disable SELinux
+      shell: 'ps aux | grep redis'
+      register: ps
+
+    - debug: var=ps.stdout_lines
+
+
+ 
