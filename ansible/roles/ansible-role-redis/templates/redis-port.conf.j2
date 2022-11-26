@@ -1,0 +1,19 @@
+[Unit]
+Description=Redis persistent key-value database
+After=network.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/etc/{{redis_port}}
+ExecStart=/usr/bin/redis-server /etc/{{redis_port}}/redis-{{redis_port}}.conf --supervised systemd
+ExecStop=/usr/libexec/redis-shutdown
+Type=notify
+User=root
+Group=root
+RuntimeDirectory=redis
+RuntimeDirectoryMode=0755
+
+[Install]
+WantedBy=multi-user.target
+

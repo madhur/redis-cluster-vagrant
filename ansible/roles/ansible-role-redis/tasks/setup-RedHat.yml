@@ -1,0 +1,30 @@
+---
+
+- name: Add repo
+  yum:
+    name: epel-release
+    state: present
+
+- name: Add repo
+  yum:
+    name: yum-utils
+    state: present
+
+- name: Add repo
+  yum:
+    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present
+
+
+- name: Add repo
+  shell: sudo yum-config-manager --enable remi
+
+- name: Add repo
+  shell: yum repolist enabled 
+
+
+- name: Ensure Redis is installed.
+  yum:
+    name: redis
+    state: present
+    
