@@ -6,19 +6,22 @@ boxes = [
         :name => "redis1",
         :eth1 => "192.168.56.10",
         :mem => "4096",
-        :cpu => "2"
+        :cpu => "2",
+        :hostport=>6379
     },
     {
       :name => "redis2",
       :eth1 => "192.168.56.11",
       :mem => "4096",
-      :cpu => "2"
+      :cpu => "2",
+      :hostport=>6380
   },
   {
     :name => "redis3",
     :eth1 => "192.168.56.12",
     :mem => "4096",
-    :cpu => "2"
+    :cpu => "2",
+    :hostport=>6381
 }
 ]
 
@@ -49,7 +52,7 @@ Vagrant.configure("2") do |config|
         config.vm.define opts[:name] do |config|
           config.vm.hostname = opts[:name]
     
-       
+          config.vm.network "forwarded_port", guest: 6379, host: opts[:hostport] 
     
           config.vm.provider "virtualbox" do |v|
             v.customize ["modifyvm", :id, "--name", opts[:name]]
