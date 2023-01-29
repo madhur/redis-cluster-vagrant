@@ -15,7 +15,7 @@ The ansible playbook provisions single redis process on each node.
 Once the redis is setup, the execute the below command by sshing into any of the nodes (ex `vagrant ssh redis1`) to form the cluster
 
 ```
-redis-cli --cluster create 192.168.56.10:6379 192.168.56.11:6379 192.168.56.12:6379 192.168.56.13:6379 192.168.56.14:6379 192.168.56.15:6379  --cluster-replicas 1
+redis-cli --cluster create 192.168.56.10:6379 192.168.56.11:6379 192.168.56.12:6379   --cluster-replicas 0
 ```
 
 Cluster info and nodes output
